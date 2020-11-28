@@ -1,12 +1,13 @@
 const tableEl = document.getElementById('table-id');
 const showEl = document.getElementById('show-id');
 const startEl = document.getElementById('start-id');
-const endEl = document.getElementById('end-id');
+const stopEl = document.getElementById('stop-id');
 
 const dh = [-1,1,0,0];
 const dw = [0,0,-1,1];
+let interval;
 
-const width = 10;
+const width = 20;
 const height = 10;
 const gp = [];
 
@@ -136,7 +137,7 @@ function removeCellListeners() {
 function startBfs() {
     startEl.removeEventListener('click', bfs);
     removeCellListeners();
-    let interval = setInterval(() => {
+    interval = setInterval(() => {
         if(queue.isEmpty()) {
             clearInterval(interval);
             addCellListeners();
@@ -190,6 +191,19 @@ function addStartListener() {
     startEl.addEventListener('click', bfs);
 }
 
+function stop() {
+    if(interval) clearInterval(interval);
+    reRenderCells();
+    addCellListeners();
+    queue.clear();
+    startEl.addEventListener('click',bfs);
+}
+
+function addStopListener() {
+    stopEl.addEventListener('click', stop);
+}
+
 makeGraph();
 addCellListeners();
 addStartListener();
+addStopListener();
