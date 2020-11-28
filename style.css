@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  padding: 4rem 1rem;
+  border-spacing: 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+td {
+  padding: 0.5rem 0rem;
+  transition: 900ms ease-in-out;
+}
+
+td {
+  cursor: pointer;
+}
+
+.action {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.action-btn {
+  font-size: 1.5rem;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  text-transform: uppercase;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+}
+
+.start {
+  background-color: green;
+}
+
+.end {
+  background-color: red;
+}
